@@ -14,23 +14,24 @@
                 <div class="col-10 m-auto tasks-sheet">
                     <h2>lista di cose da fare</h2>
                     <ul>
-                        <li class="d-flex justify-content-between mx-5 mt-4" v-for="(task,index) in tasks">
-                            <span>{{tasks[index].text}}</span>
+                        <li class="d-flex justify-content-between mx-5 mt-4 border-bottom" v-for="(task,index) in tasks">
+                            <span :class="tasks[index].done ? 'text-done text-lowercase' : 'text-undone text-uppercase'">{{tasks[index].text}}</span>
                             <div>
-                                <button @click="taskDone(index)" :class="tasks[index].done ? 'done' : 'to-do'" >done</button>
-                                <button>edit</button>
-                                <button>delete</button>
+                                <button class="btn btn-success me-3" @click="taskDone(index)" :class="tasks[index].done ? 'done' : 'to-do'" ><i :class="tasks[index].done ? 'fas fa-check' : 'fas fa-x'"></i></button>
+                                <button class="me-3 
+                                fas fa-marker btn"></button>
+                                <button @click="deleteTask(index)" class="btn fas fa-trash"></button>
                             </div>
                         </li>
                     </ul>
                     <div class="tasks-bottom-section">
-                        <input type="text">
-                        <button>add</button>
+                        <input @keyup.enter="addTask" type="text" v-model="newTask">
+                        <button @click="addTask" class="btn fas fa-plus ms-3"></button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="./js/script.js"></script>

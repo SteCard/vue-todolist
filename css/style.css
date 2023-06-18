@@ -22,3 +22,12 @@ body{
 .to-do{
     background-color: red;
 }
+
+.text-undone{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.text-done{
+    text-decoration: line-through;
+}

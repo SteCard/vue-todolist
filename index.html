@@ -7,8 +7,31 @@
     <title>vue-todolist</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>   
+<body>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-10 m-auto tasks-sheet">
+                    <h2>lista di cose da fare</h2>
+                    <ul>
+                        <li class="d-flex justify-content-between mx-5 mt-4" v-for="(task,index) in tasks">
+                            <span>{{tasks[index].text}}</span>
+                            <div>
+                                <button @click="taskDone(index)" :class="tasks[index].done ? 'done' : 'to-do'" >done</button>
+                                <button>edit</button>
+                                <button>delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="tasks-bottom-section">
+                        <input type="text">
+                        <button>add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="./script/script.js"></script>
+<script src="./js/script.js"></script>
 </html>

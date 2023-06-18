@@ -3,3 +3,22 @@
     padding:0;
     box-sizing:border-box;
 }
+
+body{
+    background-color: rgb(179, 214, 202);
+}
+
+.tasks-sheet{
+    background-color: aqua;
+    height: 700px;
+}
+
+/* done button */
+
+.done{
+    background-color: green;
+}
+
+.to-do{
+    background-color: red;
+}

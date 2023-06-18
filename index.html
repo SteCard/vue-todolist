@@ -15,11 +15,12 @@
                     <h2>lista di cose da fare</h2>
                     <ul>
                         <li class="d-flex justify-content-between mx-5 mt-4 border-bottom" v-for="(task,index) in tasks">
-                            <span :class="tasks[index].done ? 'text-done text-lowercase' : 'text-undone text-uppercase'">{{tasks[index].text}}</span>
+                            <input v-if="tasks[index].editTask" type="text" v-model="task.text" @keyup.enter="editTaskFunction(index)">
+                            <span v-else class="text-uppercase" :class="tasks[index].done ? 'text-done' : 'text-undone '" @dblclick="editTaskFunction(index)">{{tasks[index].text}}</span>
                             <div>
                                 <button class="btn btn-success me-3" @click="taskDone(index)" :class="tasks[index].done ? 'done' : 'to-do'" ><i :class="tasks[index].done ? 'fas fa-check' : 'fas fa-x'"></i></button>
                                 <button class="me-3 
-                                fas fa-marker btn"></button>
+                                fas fa-marker btn" @click="editTaskFunction(index)"></button>
                                 <button @click="deleteTask(index)" class="btn fas fa-trash"></button>
                             </div>
                         </li>
